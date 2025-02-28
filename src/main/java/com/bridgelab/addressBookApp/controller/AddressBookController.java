@@ -3,6 +3,7 @@ package com.bridgelab.addressBookApp.controller;
 import com.bridgelab.addressBookApp.dto.ContactDTO;
 import com.bridgelab.addressBookApp.model.Contact;
 import com.bridgelab.addressBookApp.service.ContactService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/contacts")
 public class AddressBookController {
-    private final ContactService contactService;
-
-    public AddressBookController(ContactService contactService) {
-        this.contactService = contactService;
-    }
+    @Autowired
+    private ContactService contactService;
 
     @GetMapping
     public ResponseEntity<List<Contact>> getAllContacts() {

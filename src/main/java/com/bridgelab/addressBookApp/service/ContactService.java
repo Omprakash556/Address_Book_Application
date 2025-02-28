@@ -3,6 +3,7 @@ package com.bridgelab.addressBookApp.service;
 import com.bridgelab.addressBookApp.dto.ContactDTO;
 import com.bridgelab.addressBookApp.model.Contact;
 import com.bridgelab.addressBookApp.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +11,8 @@ import java.util.Optional;
 
 @Service
 public class ContactService {
-    private final ContactRepository contactRepository;
-
-    public ContactService(ContactRepository contactRepository) {
-        this.contactRepository = contactRepository;
-    }
+    @Autowired
+    private ContactRepository contactRepository;
 
     public List<Contact> getAllContacts() {
         return contactRepository.findAll();
